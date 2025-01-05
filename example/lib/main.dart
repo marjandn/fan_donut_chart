@@ -31,21 +31,19 @@ class DonutChartApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Donut Chart Example'),
         ),
-        body: Center(
-          child: DonutChartWidget(
-            size: 200,
-            strokeWidth: 30,
-            data: [
-              DonutChartData(label: "Flutter", value: 40, color: Colors.blue),
-              DonutChartData(label: "React", value: 30, color: Colors.red),
-              DonutChartData(
-                  label: "Vue", value: 20, color: const Color.fromARGB(255, 173, 171, 41)),
-              DonutChartData(
-                  label: "Laravel", value: 80, color: const Color.fromARGB(255, 173, 51, 136)),
-              DonutChartData(
-                  label: "IONIC", value: 10, color: const Color.fromARGB(255, 59, 102, 202)),
-            ],
-          ),
+        body: DonutChartWidget(
+          size: 200,
+          strokeWidth: 30,
+          data: [
+            DonutSectionModel(label: "Flutter", value: 40, color: Colors.blue),
+            DonutSectionModel(label: "React", value: 30, color: Colors.red),
+            DonutSectionModel(
+                label: "Vue", value: 20, color: const Color.fromARGB(255, 173, 171, 41)),
+            DonutSectionModel(
+                label: "Laravel", value: 80, color: const Color.fromARGB(255, 173, 51, 136)),
+            DonutSectionModel(
+                label: "IONIC", value: 10, color: const Color.fromARGB(255, 59, 102, 202)),
+          ],
         ),
       ),
     );
