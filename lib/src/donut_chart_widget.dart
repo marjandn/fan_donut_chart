@@ -11,7 +11,7 @@ class DonutChartWidget extends StatefulWidget {
   /// Each [DonutSectionModel] should have a [label] and a [value] to define the chart's segments.
   final List<DonutSectionModel> data;
 
-  /// The size of the donut chart (diameter). Default value is 200.
+  /// The size of the donut chart. Default value is 200.
   /// This will define the overall size of the donut chart.
   final double size;
 
@@ -28,7 +28,6 @@ class DonutChartWidget extends StatefulWidget {
   final double tooltipRadius;
 
   /// The text style for the label inside the tooltip. Default value is [TextStyle(color: Colors.black, fontSize: 18)].
-  /// You can customize the font size, color, and other text styling here.
   final TextStyle tooltipTextStyle;
 
   /// The length of the line connecting the tooltip to the hovered segment. Default value is 40.
