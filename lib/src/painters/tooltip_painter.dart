@@ -5,14 +5,22 @@ class LShapePainter extends CustomPainter {
   late final Offset boxPosition;
   final String lable;
 
-  LShapePainter({this.lable = '', this.lineLength = 60}) {
-    boxPosition = Offset(100, -lineLength);
-  }
+  final Color bgColor;
+  final TextStyle textStyle;
+  final double borderRadius;
+
+  LShapePainter({
+    this.lable = '',
+    this.lineLength = 60,
+    required this.bgColor,
+    required this.textStyle,
+    required this.borderRadius,
+  }) : boxPosition = Offset(100, -lineLength);
 
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = Colors.black
+      ..color = bgColor
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 1;
 
@@ -21,7 +29,7 @@ class LShapePainter extends CustomPainter {
     canvas.drawLine(Offset(10, -lineLength), boxPosition, paint);
 
     TextSpan span = TextSpan(
-      style: const TextStyle(color: Colors.black, fontSize: 20),
+      style: textStyle,
       text: lable,
     );
     TextPainter textPainter = TextPainter(
@@ -33,23 +41,23 @@ class LShapePainter extends CustomPainter {
     textPainter.layout(minWidth: 0, maxWidth: double.infinity);
 
     double textWidth = textPainter.size.width;
+    double textHeight = textPainter.size.height;
     double padding = 20;
     double boxWidth = textWidth + padding;
+    double boxHeight = textHeight + padding;
 
     Rect rect = Rect.fromLTWH(
       boxPosition.dx,
       boxPosition.dy - 20,
       boxWidth,
-      50,
+      boxHeight,
     );
-    RRect roundedRect =
-        RRect.fromRectAndRadius(rect, const Radius.circular(80));
+    RRect roundedRect = RRect.fromRectAndRadius(rect, Radius.circular(borderRadius));
 
-    canvas.drawRRect(
-        roundedRect, paint..color = const Color.fromARGB(139, 190, 190, 190));
+    canvas.drawRRect(roundedRect, paint);
 
     double textOffsetX = boxPosition.dx + (boxWidth - textWidth) / 2;
-    double textOffsetY = boxPosition.dy - 8;
+    double textOffsetY = boxPosition.dy - 10;
 
     textPainter.paint(canvas, Offset(textOffsetX, textOffsetY));
   }

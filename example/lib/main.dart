@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Donut Chart Package',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -34,15 +34,12 @@ class DonutChartApp extends StatelessWidget {
         body: DonutChartWidget(
           size: 200,
           strokeWidth: 30,
+          tooltipBgColor: const Color.fromARGB(154, 178, 178, 178),
           data: [
-            DonutSectionModel(label: "Flutter", value: 40, color: Colors.blue),
-            DonutSectionModel(label: "React", value: 30, color: Colors.red),
-            DonutSectionModel(
-                label: "Vue", value: 20, color: const Color.fromARGB(255, 173, 171, 41)),
-            DonutSectionModel(
-                label: "Laravel", value: 80, color: const Color.fromARGB(255, 173, 51, 136)),
-            DonutSectionModel(
-                label: "IONIC", value: 10, color: const Color.fromARGB(255, 59, 102, 202)),
+            DonutSectionModel(label: "Instagram", value: 40, color: const Color(0xFFcd2e64)),
+            DonutSectionModel(label: "Facebook", value: 30, color: const Color(0xFF4453b3)),
+            DonutSectionModel(label: "X", value: 20, color: const Color(0xFF5aa9f2)),
+            DonutSectionModel(label: "Threads", value: 10, color: const Color(0xFFe35655)),
           ],
         ),
       ),
